@@ -1,0 +1,100 @@
+import java.util.*; // Imports any Util class 
+import java.text.DecimalFormat; // imports decimal format to allow user to use "DecimalFormat formatter = new DecimalFormat"
+
+public class NoblesJ_P3
+{
+   public static void main (String[] args)
+   {
+   
+   Scanner keyboard = new Scanner(System.in); // Allows user to input from the keyboard
+   DecimalFormat formatter = new DecimalFormat("0.00");// Allows user to print in currency format
+   
+   System.out.println("I, YOURNAME in CSC 151 Fall 2019, did not receive" +
+                         "any assistant from anyone other than Dr. Boonthum- \nDenecke or assigned tutors.");
+   System.out.println("\nProgram 3 by Jordan Nobles");
+   
+   System.out.println("***********************************"
+                        + "\n**** Jordan Nobles Ice-Cream ****"); 
+                        
+   System.out.println("\n Here is the menu: "); 
+   System.out.println ("\t 1. Vanilla $1.50");
+   System.out.println ("\t 2. Chocolate $0.95");
+   System.out.println ("\t 3. Strawberry $2.59");
+   System.out.println ("\t 4. Cakebatter $1.50");
+   System.out.println ("\t 5. Mint $1.75");
+   System.out.println ("\t 6. Rainbow $1.99");
+   
+   System.out.println("\n***********************************");
+   System.out.print("Please enter a number for ice-cream flavor (1 – 6):");
+   int aFlavor_JAN = keyboard.nextInt(); // an integer input representing the ice-cream flavor you order
+   
+   System.out.print("How many scoops (at least 1)?");
+   int noScoop_JAN = keyboard.nextInt(); //  an integer input representing a number of ice-cream scoops you order
+   
+   
+   
+   float aCost_JAN = 0; // Initiallizes null to keep track of aCost_JAN
+   String your_flavor = ""; // Initiallizes empty string to keep track of flavor
+   switch (aFlavor_JAN) 
+      {
+         case 1: aCost_JAN = (float)1.50;   //If user inputs 1 for aFlavor_JAN then the aCost_JAN will be the declared as 1.50.
+                 your_flavor = "Vanilla";                          //If user inputs 212 as an area code then the area string will be the output
+            break;  
+      
+         case 2: aCost_JAN = (float)0.95;    //If user inputs 1 for aFlavor_JAN then the aCost_JAN will be the declared as .95
+                 your_flavor = "Chocolate";  //If user inputs 202 as an area code then the area string will be the output
+            break; 
+      
+         case 3: aCost_JAN = (float)2.59; //If user inputs 1 for aFlavor_JAN then the aCost_JAN will be the declared as 2.59
+                 your_flavor = "Strawberry";
+            break;  
+      
+         case 4: aCost_JAN = (float) 1.50; //If user inputs 1 for aFlavor_JAN then the aCost_JAN will be the declared as 1.50
+                 your_flavor = "Cakebatter";
+            break; 
+      
+         case 5: aCost_JAN = (float)1.75; //If user inputs 5 for aFlavor_JAN then the aCost_JAN will be the declared as 1.75
+                 your_flavor = "Mint";
+            break;
+         
+         case 6: aCost_JAN =  (float)1.99; //If user inputs 6 for aFlavor_JAN then the aCost_JAN will be the declared as 1.99
+                 your_flavor = "Rainbow";
+            break; 
+
+         default: // for any other integer 
+            System.out.print ("The only accepted value for scoops are 1 to 6 "); // if none of the switch statements are not satisfied then area string will be the output
+      }
+
+   float iCost_JAN = aCost_JAN * noScoop_JAN; //a floating-point representing a total cost of ice-cream, i.e., aCost * noScoop
+
+   System.out.println("Your order of "  + your_flavor + " for " + noScoop_JAN + 
+                     " scoops costs $" + formatter.format(iCost_JAN)); 
+                        
+   System.out.print("Please enter the bill $5, $10, $20 :"); 
+   int aBill_JAN = keyboard.nextInt(); // an integer input representing a bill that you use to pay for this ice-cream cone 
+   
+   if ( aBill_JAN != 5 && aBill_JAN != 10 && aBill_JAN != 20)
+         System.out.println("STOP"); 
+   
+   float aChange_JAN = aBill_JAN - iCost_JAN; //a floating-point representing a change after paying for this ice-cream cone
+   System.out.println("Your change is " + formatter.format(aChange_JAN) ); //+ $6.25 mutator with calc
+   
+   float additionScoops_JAN=0;
+   
+   
+   
+   
+   //if (aChange_JAN < 
+      //additionScoops_JAN
+   
+   System.out.println("\nWith the remaining money, you can get" + additionScoops_JAN); // if statement for 5 more scoops.
+   
+   System.out.println("Thank you for visiting us at Jordan Nobles Ice-cream store!");
+   System.out.println("Program 3 is completed by Jordan Nobles, Student ID: 00444118");
+   
+   
+ 
+      }
+  
+   
+   }
