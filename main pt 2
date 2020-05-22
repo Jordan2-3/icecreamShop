@@ -1,0 +1,129 @@
+import java.util.*; // Imports any Util class 
+import java.text.DecimalFormat; // imports decimal format to allow user to use "DecimalFormat formatter = new DecimalFormat"
+
+public class NoblesJ_P4
+{
+   public static void main (String[] args)
+   {
+   
+   Scanner keyboard = new Scanner(System.in); // Allows user to input from the keyboard
+   DecimalFormat formatter = new DecimalFormat("0.00");// Allows user to print in currency format
+   
+   System.out.println("I, Jordan Nobles in CSC 151 Fall 2019, did not receive" +
+                         " any assistant from anyone other than Dr. Boonthum- \nDenecke or assigned tutors.");
+   System.out.println("\nProgram 3 by Jordan Nobles");
+   
+   System.out.println("***********************************"
+                        + "\n**** Jordan Nobles Ice-Cream ****"); 
+  
+   System.out.println("Do you want another order of ice-cream? [Yes / No]:");
+   String Anotherorder; 
+
+   do 
+   {                     
+   System.out.println("\n Here is the menu: "); 
+   System.out.println ("\t 1. Vanilla $1.50");
+   System.out.println ("\t 2. Chocolate $0.95");
+   System.out.println ("\t 3. Strawberry $2.59");
+   System.out.println ("\t 4. Cakebatter $1.50");
+   System.out.println ("\t 5. Mint $1.75");
+   System.out.println ("\t 6. Rainbow $1.99");
+   
+   System.out.println("\n***********************************");
+   System.out.print("Please enter a number for ice-cream flavor (1 – 6):");
+   int aFlavor_JAN = keyboard.nextInt(); // an integer input representing the ice-cream flavor you order
+    
+   while ( aFlavor_JAN < 1 || aFlavor_JAN > 6 ) // while loop that keeps asking the user to enter a number within the range 
+         {
+         System.out.print ( "STOP Please enter a number for ice-cream flavor (1 – 6):");
+         aFlavor_JAN = keyboard.nextInt(); 
+         } 
+
+   System.out.print("How many scoops (at least 1)?");
+   int noScoop_JAN = keyboard.nextInt(); //  an integer input representing a number of ice-cream scoops you order
+   while ( noScoop_JAN < 1 || noScoop_JAN > 10 )  // while condtion that keeps prompting the user to enter a positve number of scoops if intially the the scoop is a negative number    
+         {
+         System.out.print ( "STOP number of scoops has to be least 1 scoop (no negative integer or 0), but cannot be more than 10" +
+                                           "scoops (10 is maximum number).");
+         noScoop_JAN = keyboard.nextInt(); 
+         }
+   
+   
+   float aCost_JAN = 0; // Initiallizes null to keep track of aCost_JAN
+   String your_flavor = ""; // Initiallizes empty string to keep track of flavor
+   switch (aFlavor_JAN) 
+      {
+         case 1: aCost_JAN = (float)1.50;   //If user inputs 1 for aFlavor_JAN then the aCost_JAN will be the declared as 1.50.
+                 your_flavor = "Vanilla";                          //If user inputs 212 as an area code then the area string will be the output
+            break;  
+      
+         case 2: aCost_JAN = (float)0.95;    //If user inputs 1 for aFlavor_JAN then the aCost_JAN will be the declared as .95
+                 your_flavor = "Chocolate";  //If user inputs 202 as an area code then the area string will be the output
+            break; 
+      
+         case 3: aCost_JAN = (float)2.59; //If user inputs 1 for aFlavor_JAN then the aCost_JAN will be the declared as 2.59
+                 your_flavor = "Strawberry";
+            break;  
+      
+         case 4: aCost_JAN = (float) 1.50; //If user inputs 1 for aFlavor_JAN then the aCost_JAN will be the declared as 1.50
+                 your_flavor = "Cakebatter";
+            break; 
+      
+         case 5: aCost_JAN = (float)1.75; //If user inputs 5 for aFlavor_JAN then the aCost_JAN will be the declared as 1.75
+                 your_flavor = "Mint";
+            break;
+         
+         case 6: aCost_JAN =  (float)1.99; //If user inputs 6 for aFlavor_JAN then the aCost_JAN will be the declared as 1.99
+                 your_flavor = "Rainbow";
+            break; 
+
+         default: // for any other integer the string below will be printed for aCost_JAN 
+            System.out.print ("The only accepted value for scoops are 1 to 6 "); 
+      }
+
+   float iCost_JAN = aCost_JAN * noScoop_JAN; //a floating-point representing a total cost of ice-cream, 
+   
+   System.out.println("Your order of "  + your_flavor + " for " + noScoop_JAN + 
+                     " scoops costs $" + formatter.format(iCost_JAN)); 
+                        
+   System.out.print("Please enter the bill $5, $10, $20, $50, or $100 bill:"); 
+   int aBill_JAN = keyboard.nextInt(); // an integer input representing a bill that you use to pay for this ice-cream cone 
+   
+   while  ( aBill_JAN !=5 && aBill_JAN !=10 && aBill_JAN !=20 && aBill_JAN !=50 && aBill_JAN !=100 && aBill_JAN < iCost_JAN )  //  while condtion that keeps prompting the user to enter a bill that is only these values $5, $10, $20, $50, or $100 bill.   
+                                                                                                                                 //Also checks to make sure the bill has to be positive number and at least greater than the cost of the ice-cream  
+         {
+         System.out.print ( "STOP enter a enter a bill that's $5, $10, or $20:");
+         aBill_JAN = keyboard.nextInt(); 
+        
+         } 
+
+       
+   
+   float aChange_JAN = aBill_JAN - iCost_JAN; //a floating-point representing a change after paying for this ice-cream cone
+   System.out.println("Your change is " + formatter.format(aChange_JAN) ); 
+   
+   float additionScoops_JAN= aChange_JAN/aCost_JAN ; // equation to find out how many extra scoops can the user get
+   
+   System.out.println("\nWith the remaining money, you can get " + (int)additionScoops_JAN + " scoops \n"); // The additionScoops is casted to an integer so the user knows how many whole scoops they can get.
+   
+   keyboard.nextLine(); // clears buffer 
+   
+   System.out.println("Do you want another order of ice-cream? [Yes / No]:");
+    Anotherorder= keyboard.nextLine(); 
+   }
+   while(Anotherorder.equalsIgnoreCase("yes") || Anotherorder.equals('Y') || Anotherorder.equals('y')) ;
+  
+  
+ 
+   
+   
+   System.out.println("Thank you for visiting us at Jordan Nobles Ice-cream store!");
+   System.out.println("Program 3 is completed by Jordan Nobles, Student ID: 00444118");
+   
+   
+ 
+      }
+  
+   
+   }
+ 
